@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_world/HomePage.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,8 +19,31 @@ class _MyAppState extends State<MyApp> {
     super.initState();
   }
 
+  void _decrementCounter(_) {
+    setState(() {
+      counter--;
+      print('decrement : $counter');
+    });
+  }
+
+  void _incrementCounter(_) {
+    setState(() {
+      counter++;
+      print('increment : $counter');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(primaryColor: Colors.blue),
+      home: HomePage(
+        title: 'This is home page ...',
+        counter: counter,
+        decrementCounter: _decrementCounter,
+        incrementCounter: _incrementCounter,
+      ),
+    );
   }
 }
