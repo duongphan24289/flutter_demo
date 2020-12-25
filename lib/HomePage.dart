@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_world/SecondPage.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -38,8 +39,17 @@ class _HomePageState extends State<HomePage> {
               style: Theme.of(context).textTheme.display1,
             ),
             RaisedButton(
-              onPressed: null,
               child: Text('Next screen'),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SecondPage(
+                              widget.decrementCounter,
+                              title: 'Second Page',
+                              counter: widget.counter,
+                            )));
+              },
             )
           ],
         ),
