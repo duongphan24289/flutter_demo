@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hello_world/SecondPage.dart';
+import 'package:hello_world/TodoList.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -50,6 +51,13 @@ class _HomePageState extends State<HomePage> {
                               counter: widget.counter,
                             )));
               },
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => TodoList()));
+              },
+              child: Text('Goto todo list.'),
             )
           ],
         ),
